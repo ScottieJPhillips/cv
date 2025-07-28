@@ -1,25 +1,30 @@
-name: LaTeX Compilation
+name: Compile LaTeX CV
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+    - name: Checkout Repository
+      uses: actions/checkout@v4
 
-      - name: Compile LaTeX document
-        uses: xu-cheng/latex-action@v3
-        with:
-          root_file: main.tex
-          compiler: pdflatex
+    - name: Install TeX Live
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y texlive-full
 
-      - name: Upload PDF artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: compiled-pdf
-          path: cv.pdf PDF
+    - name: Compile PDF with latexmk
+      run: |
+        latexmk -pdf -interaction=nonstopmode -output-directory=out main.tex
+
+    - name: Upload PDF
+      uses: actions/upload-artifact@v4
+      with:
+        name: compiled-cv
+        path: out/main.pdf
