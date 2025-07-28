@@ -1,0 +1,149 @@
+%______________________________________________________________________________________________________________________
+% @briefLaTeX2e Resume for Kamil K Wojcicki
+\documentclass[margin,line]{resume}
+\usepackage[colorlinks = true,
+linkcolor = blue,
+urlcolor  = blue,
+citecolor = blue,
+anchorcolor = blue]{hyperref}
+
+\usepackage{fontawesome}
+
+% bibliography with mutiple entries
+\usepackage{multibib}
+\newcites{papers}{\mysidestyle Selected Papers}
+\newcites{talks}{\mysidestyle Selected Talks}
+\newcites{works}{\mysidestyle Selected Works}
+
+\usepackage{etoolbox}
+\BeforeBeginEnvironment{thebibliography}{%
+  \let\origsection\section% save original definition of \section
+  \let\section\subsection%  make \section behave like \subsection
+}
+\AfterEndEnvironment{thebibliography}{%
+  \let\section\origsection% restore original definition of \section
+}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\renewcommand{\headrulewidth}{0pt}
+\input{env}
+\fancyhead{}
+\fancyfoot{}
+\lfoot{\hspace{-\sectionwidth}\footnotesize {Scott Phillips' Curriculum Vitae}}
+\rfoot{\footnotesize Built {November 12, 2024}}
+
+\linespread{1.0}
+
+%______________________________________________________________________________________________________________________
+\begin{document}
+\name{\Large Scott Phillips}
+\begin{resume}
+
+%__________________________________________________________________________________________________________________
+% Contact Information
+\section{\mysidestyle Contact\\Information}
+
+Scott Phillips\hfill \href{mailto:scjphill@ucsc.edu}{\faicon{envelope}~scjphill@ucsc.edu}
+\vspace{0mm}\\\vspace{0mm}%
+215 Felix, Santa Cruz, CA 95060\hfill  \href{https://www.linkedin.com/in/scott-phillips-438583176/}{\faicon{linkedin}~Scott Phillips}
+\vspace{0mm}\\\vspace{0mm}%
+(559) 360-7999\hfill \href{https://github.com/ScottieJPhillips}{\faicon{github}~ScottieJPhillips}
+\vspace{0mm}\\\vspace{0mm}%
+\vspace{-6.5mm}%
+
+%__________________________________________________________________________________________________________________
+% Research Interests
+\section{\mysidestyle Research\\Interests}
+{\small
+High Energy Particle Physics, Electronics, Machine Learning, Data Analysis\\Computational Physics.
+}
+%__________________________________________________________________________________________________________________
+% Education
+\section{\mysidestyle Education}
+
+\textbf{University of California Santa Cruz}, Santa Cruz, California \hfill \textbf{September 2023 -- June 2025}\\
+\textsl{B.S. Physics}\\{GPA 3.83}\\
+%
+\textbf{Fresno City College}, Fresno, California \hfill \textbf{August 2021 -- May 2023}\\
+\textsl{A.S. Physical Science, A.S.-T Chemistry}
+%
+% \textbf{Florida Atlantic University} Boca Raton, Florida \hfill \textbf{Aug 2004 -- June 2008}\\
+% \textsl{Engineering Scholars Program} -- dual-enrollment during high school\\[5mm]
+%
+% \textbf{Suncoast Community High School}, Riviera Beach, Florida \hfill \textbf{Aug 2004 -- Dec 2008}\\
+% \textsl{Math, Science and Engineering Program}
+
+%__________________________________________________________________________________________________________________
+% Professional Experience
+\section{\mysidestyle Experience}
+
+\textbf{SCIPP}, University of California Santa Cruz \hfill \textbf{November 2023 -- Present}\\
+\textsl{Pixel Detector Project Assistant, ATLAS Experiment at CERN}
+\begin{list2}
+\item Conducted thermal stress tests and power cycling on hybrid pixel sensors to assess reliability.
+\item Wrote automated test scripts for electrical performance evaluation using power supplies and DAQ tools.
+\item Developed a textual user interface to control testing hardware and monitor the temperature of chips. 
+\item Performed failure analysis on faulty chips, documenting root causes and recommending fixes.
+\item Used oscilloscopes, multimeters, and precision power supplies for hardware-level testing.
+\item Complied with cleanroom and ESD-safe handling procedures in component assembly.
+\end{list2}
+\textbf{SCIPP}, University of California Santa Cruz \hfill \textbf{October 2024 -- June 2025}\\
+\textsl{\href{https://github.com/scipp-atlas/CABIN}{\faicon{github}~CABIN}: Cuts as Biases in Networks}
+\begin{list2}
+  \item Developed a custom neural network and loss function to optimize photon identification in ATLAS data.
+  \item Implemented gradient descent techniques to adjust cut criteria and improve signal efficiency.
+  \item Processed large datasets using high-performance computing resources at the University of Chicago.
+  \item Explored interpretability techniques to quantify biases introduced by selection criteria.
+\end{list2}
+{{\textbf{Metiri}}}, Clovis, California \hfill \textbf{May 2022 -- Jan 2024}\\
+\textsl{Technician/Analyst, Volatile Organic Analysis}
+\begin{list2}
+  \item Operating GC-MS instrument for the detection of volatile and semivolatile organic compounds.
+  \item Programming instruments to detect specific compounds by changing parameters for selective ion measuring (SIM).
+  \item Observed chromatograms and mass spectra to determine the concentration of pollutants.
+  \item Making quality control and calibrations at specific concentrations to be used at quality control within DoD and EPA control limits.
+  \item Drafting and packaging reports, as well as interpreting data when needed.
+\end{list2}
+%__________________________________________________________________________________________________________________
+
+%__________________________________________________________________________________________________________________
+
+% Honours and Awards
+\section{\mysidestyle Honours and\\Awards}
+
+UC Santa Cruz Deans Honor Award\\
+Fresno City College Deans Honors Award\\
+Clovis Community College Deans Honors Award\\
+
+%__________________________________________________________________________________________________________________
+
+%\textbf{Basic Web Programming}, Caltech \hfill \textbf{Jan 2011 -- June 2012}\\
+%\textsl{Student Instructor}, \textbf{Course Sponsor}: Adam Wierman
+%\begin{list2}
+%  \item \url{http://ugcs.caltech.edu/~kratsg/PA070b} (\textbf{materials available on request})
+%  \item This class was taught during Caltech's Winter Term
+%\end{list2}
+
+% Languages, Programming, Skills
+
+\section{\mysidestyle Technical \\Skills}
+\textbf{Instrumentation}: Oscilloscope, power supply, multimeter, soldering (SMD + through-hole), DAQ systems, GC-MS, microscope work, vibration/thermal test jigs
+
+\textbf{Software \& Libraries}: Python, C++, ROOT, TensorFlow, Keras, NumPy, SciPy, Matplotlib, Git
+
+\textbf{CAD \& Hardware}: AutoCAD, 3D printing (FDM), PCB testing, TikZ circuit schematics
+
+\textbf{Platforms}: Linux, GitHub/GitLab, SLURM HPC clusters
+
+
+
+%__________________________________________________________________________________________________________________
+% Explaining this CV hosted
+% \section{\mysidestyle Continuous Integration}
+%
+% This curriculum vitae was built automatically using continuous integration that ran from a github repository hosting the latex sources. After building the PDF, this is deployed back to github where it is hosted for free as a static website. The links in the footer on every page provide details about the version of the CV you are reading, when it was built, and where the currently hosted version is. Try the links out!
+%
+%______________________________________________________________________________________________________________________
+\end{resume}
+\end{document}
