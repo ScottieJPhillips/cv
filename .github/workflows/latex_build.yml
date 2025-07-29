@@ -28,3 +28,12 @@ jobs:
       with:
         name: compiled-cv
         path: out/main.pdf
+        
+    - name: Commit PDF to repo
+      run: |
+        git config --global user.name 'github-actions[bot]'
+        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+        cp out/main.pdf compiled-cv.pdf
+        git add compiled-cv.pdf
+        git commit -m "Add compiled CV PDF [auto]" || echo "No changes to commit"
+        git push
